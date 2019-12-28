@@ -9,7 +9,7 @@ namespace QuickBuy.Dominio.ObjetoDeValor
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Descridcao { get; set; }
+        public string Descricao { get; set; }
         public bool EhBoleto
         {
             get { return Id == (int)TipoFormaPagamentoEnum.Boleto; }
