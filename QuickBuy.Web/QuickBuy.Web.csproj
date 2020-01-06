@@ -25,7 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\produto\produto.component.html" />
     <None Remove="ClientApp\src\app\produto\produto.component.ts" />
+    <None Remove="ClientApp\src\app\Usuario\cadastro\cadastro.component.ts" />
+    <None Remove="ClientApp\src\app\Usuario\login\login.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +37,8 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\produto\produto.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Usuario\cadastro\cadastro.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\Usuario\login\login.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
