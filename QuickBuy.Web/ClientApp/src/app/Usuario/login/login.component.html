@@ -8,13 +8,13 @@
     <input type="email" id="inputEmail" name="email"
            placeholder="Informe seu Email aqui!"
            class="form-control mb-2"
-           [(ngModel)]="email"/>
+           [(ngModel)]="usuario.email"/>
 
     <label for="inputSenha" class="sr-only">Senha</label>
     <input type="password" id="inputSenha" name="senha"
            placeholder="Informe sua senha aqui!"
            class="form-control mb-2"
-           [(ngModel)]="senha"/>
+           [(ngModel)]="usuario.senha"/>
 
     <button class="btn btn-primary btn-block"
             type="submit" (click)="entrar()">Entrar</button>
