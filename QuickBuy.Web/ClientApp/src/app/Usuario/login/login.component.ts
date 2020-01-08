@@ -8,4 +8,11 @@ import { Component } from "@angular/core"
 
 export class LoginComponent {
 
+  entrar() {
+    alert('Entrar no sistema');
+  }
+
+  on_keypress() {
+    alert('foi digitado no camo de email');
+  }
 }
