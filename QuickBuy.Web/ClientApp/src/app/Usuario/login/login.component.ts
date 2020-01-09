@@ -12,6 +12,8 @@ export class LoginComponent {
   public usuario;
   public usuarioAutenticado: boolean;
 
+  public usuarios = ["Usuario1", "Usuario2", "Usuario3", "Usuario4","Usuario5"];
+
   constructor() {
     this.usuario = new Usuario();
   }
