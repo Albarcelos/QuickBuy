@@ -8,28 +8,36 @@
     <input type="email" id="inputEmail" name="email"
            placeholder="Informe seu Email aqui!"
            class="form-control mb-2"
-           [(ngModel)]="usuario.email"/>
+           [(ngModel)]="usuario.email"
+           #email="ngModel"
+           email
+           required/>
+    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        Obrigatório o preenchimento do Email.
+      </div>
+      <div *ngIf="email.errors.email">
+        Email em formato inválido.
+      </div>
+    </div>
 
     <label for="inputSenha" class="sr-only">Senha</label>
     <input type="password" id="inputSenha" name="senha"
            placeholder="Informe sua senha aqui!"
            class="form-control mb-2"
-           [(ngModel)]="usuario.senha"/>
+           [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           required/>
+    <div class="alert alert-danger" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Obrigatório o preenchimento da senha.
+      </div>
+    </div>
 
     <button class="btn btn-primary btn-block"
             type="submit" (click)="entrar()">Entrar</button>
     
     <img src="../../../assets/img/quick-buy-logo.jpg" />
-
-    <div class="alert alert-success" role="alert" *ngIf="usuarioAutenticado">
-      Usuário Autenticado!
-    </div>
-
-    <div class="alert alert-warning" role="alert">
-      <div *ngFor="let user of usuarios">
-        {{ user }}
-      </div>
-    </div>
 
   </form>
 
