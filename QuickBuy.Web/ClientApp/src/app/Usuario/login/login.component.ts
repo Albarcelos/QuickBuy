@@ -18,8 +18,8 @@ export class LoginComponent {
 
   entrar() {
     if (this.usuario.email == "alexandreluisbarcelos@gmail.com" && this.usuario.senha == "123456") {
-      localStorage.setItem("usuario-autenticado", "1");
-      //this.router.navigate(['/']);
+      sessionStorage.setItem("usuario-autenticado", "1");
+      this.router.navigate(['/']);
     }
   }
 
