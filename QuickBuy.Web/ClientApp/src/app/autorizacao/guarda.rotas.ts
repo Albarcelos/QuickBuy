@@ -6,14 +6,15 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 })
 export class GuardaRotas implements CanActivate {
   
-  constructor(router: Router) {
+  constructor(private router: Router) {
     
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    //this.router.navigate(['/entrar']);
+
+    this.router.navigate(['/entrar']);
     // se usuario autenticado
-    return true;
+    return false;
   }
     
 }
