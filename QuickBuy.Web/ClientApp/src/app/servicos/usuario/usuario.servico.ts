@@ -10,13 +10,14 @@ import { Usuario } from '../../modelo/usuario';
 export class UsuarioSevico{
 
   private BaseURL: string;
+
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.BaseURL = baseUrl;
   }
 
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
 
-    const header = new HttpHeaders().set('content-type', 'application/json');
+    const headers = new HttpHeaders().set('content-type', 'application/json');
 
     var body = {
       email: usuario.email,
