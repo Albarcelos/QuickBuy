@@ -13,6 +13,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { CadastroComponent } from './usuario/cadastro/cadastro.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
+import { UsuarioSevico } from './servicos/usuario/usuario.servico';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { GuardaRotas } from './autorizacao/guarda.rotas';
       { path: 'cadastrar', component: CadastroComponent },
     ])
   ],
-  providers: [],
+  providers: [UsuarioSevico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
