@@ -23,19 +23,6 @@ namespace QuickBuy.Web.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult Post()
-        {
-            try
-            {
-                return Ok();
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
-
         [HttpPost("VerificarUsuario")]
         public ActionResult VerificarUsuario([FromBody] Usuario usuario)
         {
@@ -53,5 +40,19 @@ namespace QuickBuy.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+        
+        [HttpPost]
+        public ActionResult Post()
+        {
+            try
+            {
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        
     }
 }

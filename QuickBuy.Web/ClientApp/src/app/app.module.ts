@@ -13,7 +13,7 @@ import { ProdutoComponent } from './produto/produto.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { CadastroComponent } from './usuario/cadastro/cadastro.component';
 import { GuardaRotas } from './autorizacao/guarda.rotas';
-import { UsuarioSevico } from './servicos/usuario/usuario.servico';
+import { UsuarioServico } from './servicos/usuario/usuario.servico';
 
 @NgModule({
   declarations: [
@@ -36,10 +36,9 @@ import { UsuarioSevico } from './servicos/usuario/usuario.servico';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
-      { path: 'cadastrar', component: CadastroComponent },
     ])
   ],
-  providers: [UsuarioSevico],
+  providers: [UsuarioServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

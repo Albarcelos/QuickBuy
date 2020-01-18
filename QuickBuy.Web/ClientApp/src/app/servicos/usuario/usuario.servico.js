@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var UsuarioSevico = /** @class */ (function () {
-    function UsuarioSevico() {
+var UsuarioServico = /** @class */ (function () {
+    function UsuarioServico() {
     }
-    return UsuarioSevico;
+    return UsuarioServico;
 }());
-exports.UsuarioSevico = UsuarioSevico;
+exports.UsuarioServico = UsuarioServico;
 //# sourceMappingURL=usuario.servico.js.map

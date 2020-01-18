@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@Angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Usuario } from '../../modelo/usuario';
 
@@ -7,7 +7,7 @@ import { Usuario } from '../../modelo/usuario';
   providedIn: "root"
 })
 
-export class UsuarioSevico{
+export class UsuarioServico{
 
   private BaseURL: string;
 
@@ -25,7 +25,7 @@ export class UsuarioSevico{
     }
 
     //this.baseURL = raiz do site que pode ser por exemplo.: http://www.quickbuy.com/
-    return this.http.post<Usuario>(this.BaseURL + "api/usuario", body, { headers });
+    return this.http.post<Usuario>(this.BaseURL + "api/usuario/VerificarUsuario", body, { headers });
   }
 
 }

@@ -22,12 +22,6 @@ export class NavMenuComponent {
   }
 
   public usuarioLogado(): boolean {
-    //var usuarioLogado = sessionStorage.getItem("usuario-autenticado");
-    //if (usuarioLogado == "1") {
-    //  return true;
-    //}
-    //return false;
-
     return sessionStorage.getItem("usuario-autenticado") == "1";
   }
 
