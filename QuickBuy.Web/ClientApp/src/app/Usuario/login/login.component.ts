@@ -29,14 +29,13 @@ export class LoginComponent implements OnInit {
   entrar() {
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
-        data => {
+
+        usuario_json => {
           // Essa linha será executada no caso de retorno sem erros
           //console.log(data);
-          var usuarioRetorno: Usuario;
-          usuarioRetorno = data;
-          sessionStorage.setItem("usuario-autenticado", "1");
-          sessionStorage.setItem("email-usuario", usuarioRetorno.email);
-
+          //sessionStorage.setItem("usuario-autenticado", "1");
+          this.usuarioServico.usuario = usuario_json;
+          
           if (this.returnUrl == null) {
             this.router.navigate(['/']);
           } else {
@@ -44,6 +43,7 @@ export class LoginComponent implements OnInit {
           }
 
         },
+
         err => {
           // Caso ocorra algum erro
           console.log(err.error);
