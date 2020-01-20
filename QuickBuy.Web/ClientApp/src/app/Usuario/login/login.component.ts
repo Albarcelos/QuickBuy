@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   public usuario;
   public returnUrl: string;
   public mensagem: string;
+  public ativar_spinner: boolean
 
   constructor(private router: Router,
     private activatedRouter: ActivatedRoute,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   entrar() {
+    this.ativar_spinner = true;
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
 
@@ -48,6 +50,7 @@ export class LoginComponent implements OnInit {
           // Caso ocorra algum erro
           console.log(err.error);
           this.mensagem = err.error;
+          this.ativar_spinner = false;
         }
       );
   }
