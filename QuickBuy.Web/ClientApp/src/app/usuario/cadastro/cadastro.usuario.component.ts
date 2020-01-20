@@ -1,7 +1,7 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-cadastroUsuario',
+  selector: 'cadastro-usuario',
   templateUrl: './cadastro.usuario.component.html',
   styleUrls: ['./cadastro.usuario.component.css']
 })
