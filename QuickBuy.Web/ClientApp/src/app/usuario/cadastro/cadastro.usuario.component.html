@@ -42,7 +42,6 @@
       </div>
     </div>
 
-
     <label for="inputNome" class="sr-only">Nome</label>
     <input type="text" id="inputNome" name="nome"
            placeholder="Informe seu Nome aqui!"
@@ -60,10 +59,10 @@
       </div>
     </div>
 
-    <label for="inputSobreNome" class="sr-only">SobreNome</label>
+    <label for="inputSobreNome" class="sr-only">Sobre Nome</label>
     <input type="text" id="inputSobreNome" name="sobreNome"
-           placeholder="Informe seu SobreNome aqui!"
-           [(ngModel)]="usuario.SobreNome"
+           placeholder="Informe seu Sobre Nome aqui!"
+           [(ngModel)]="usuario.sobreNome"
            #sobreNome="ngModel"
            class="form-control mb-2"
            [ngClass]="{
@@ -73,10 +72,9 @@
            required />
     <div class="invalid-feedback mb-2" *ngIf="sobreNome.invalid && (sobreNome.dirty || sobreNome.touched)">
       <div *ngIf="sobreNome.errors.required">
-        Obrigatório o preenchimento do SobreNome.
+        Obrigatório o preenchimento do Sobre Nome.
       </div>
     </div>
-
 
     <button class="btn btn-primary btn-block mb-3" type="submit" (click)="cadastrar()"
             [disabled]="ativar_spinner">
@@ -84,6 +82,8 @@
             *ngIf="ativar_spinner"></span>
       Cadastrar
     </button>
+
+    <div>Jé está cadastrado? <a [routerLink]='["/entrar"]'>Entrar</a></div>
 
     <div class="alert alert-danger" *ngIf="mensagem">
       {{ mensagem }}
