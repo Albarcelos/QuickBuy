@@ -18,4 +18,11 @@ export class CadastroUsuarioComponent implements OnInit {
   ngOnInit(): void {
     this.usuario = new Usuario();
   }
+
+  public cadastrar() {
+    this.usuarioServico.cadastrarUsuario(this.usuario)
+      .subscribe(
+        usuarioJson => { },
+        err => { });
+  }
 }
