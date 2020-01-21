@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Usuario } from '../../modelo/usuario'
 import { UsuarioServico } from '../../servicos/usuario/usuario.servico';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'cadastro-usuario',
@@ -10,8 +11,12 @@ import { UsuarioServico } from '../../servicos/usuario/usuario.servico';
 
 export class CadastroUsuarioComponent implements OnInit {
   public usuario: Usuario;
+  public returnUrl: string;
+  public mensagem: string;
 
-  constructor(private usuarioServico: UsuarioServico) {
+  constructor(private router: Router,
+    private activatedRouter: ActivatedRoute,
+    private usuarioServico: UsuarioServico) {
 
   }
 
@@ -22,7 +27,22 @@ export class CadastroUsuarioComponent implements OnInit {
   public cadastrar() {
     this.usuarioServico.cadastrarUsuario(this.usuario)
       .subscribe(
-        usuarioJson => { },
-        err => { });
+        usuario_json => {
+          // Essa linha será executada no caso de retorno sem erros
+          //console.log(data);
+          this.usuarioServico.usuario = usuario_json;
+
+          if (this.returnUrl == null) {
+            this.router.navigate(['/']);
+          } else {
+            this.router.navigate([this.returnUrl]);
+          }
+
+        },
+        err => {
+          // Caso ocorra algum erro
+          console.log(err.error);
+          this.mensagem = err.error;
+        });
   }
 }
