@@ -1,1 +1,11 @@
-<h1>Lista de Produtos</h1>
+<h1 class="h4">Cadastro de Produtos</h1>
+
+<label for="inputNome" class="sr-only">Nome Produto</label>
+<input type="text" id="inputNome" name="nome" placeholder="Nome do Produto"
+       [(ngModel)]="produto.nome" #nome="ngModel" class="form-control mb2 col-md-6"
+       [ngClass]="" required/>
+
+<label class="sr-only">Descrição Produto</label>
+<input type="text" id="inputDescricao" name="descricao" placeholder="Descrição do Produto"
+       [(ngModel)]="produto.descricao" #descricao="ngModel" class="form-control mb2 col-md-6"
+       [ngClass]="" required/>
