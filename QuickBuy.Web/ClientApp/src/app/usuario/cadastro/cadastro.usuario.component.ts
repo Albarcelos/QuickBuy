@@ -16,9 +16,7 @@ export class CadastroUsuarioComponent implements OnInit {
   public ativar_spinner: boolean;
   public usuarioCadastrado: boolean;
 
-  constructor(private router: Router,
-    private activatedRouter: ActivatedRoute,
-    private usuarioServico: UsuarioServico) {
+  constructor(private usuarioServico: UsuarioServico) {
 
   }
 
