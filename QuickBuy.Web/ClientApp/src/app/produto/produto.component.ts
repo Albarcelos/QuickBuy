@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Router, ActivatedRoute } from "@angular/router";
+import { ProdutoServico } from "../servicos/produto/produto.servico";
+import { Produto } from "../modelo/produto";
 
 @Component({
   selector: 'app-produto',
@@ -11,7 +13,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 export class ProdutoComponent implements OnInit {
 
   // camelCase - Para variaveis, atributos e funcoes
-  public nome: string;
+  public produto: Produto;
   public liberadoParaVenda: boolean;
   public returnUrl: string;
   public mensagem: string;
@@ -23,11 +25,21 @@ export class ProdutoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    this.produto = new Produto();
   }
 
-  public obterNome(): string {
-    //return this.nome;
-    return "Samsung";
+  public cadastrar() {
+    //this.produto;
+    this.produtoServico.cadastrar(this.produto)
+      .subscribe(
+        produto_json => {
+          // Caso ocorra algum erro
+          console.log(produto_json);
+        },
+        err => {
+          // Caso ocorra algum erro
+          console.log(err.error);
+          this.mensagem = err.error;
+        });
   }
 }
