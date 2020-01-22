@@ -28,9 +28,9 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
+      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
     ])
   ],
   providers: [UsuarioServico],

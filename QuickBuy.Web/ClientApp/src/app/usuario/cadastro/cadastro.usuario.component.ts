@@ -29,6 +29,7 @@ export class CadastroUsuarioComponent implements OnInit {
       " ,Senha: " + this.usuario.senha +
       " ,Nome: " + this.usuario.nome +
       " ,Sobre Nome: " + this.usuario.sobreNome);
+
     //this.usuarioServico.cadastrarUsuario(this.usuario)
     //  .subscribe(
     //    usuario_json => {
