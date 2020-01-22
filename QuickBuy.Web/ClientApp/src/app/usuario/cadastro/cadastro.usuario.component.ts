@@ -13,6 +13,8 @@ export class CadastroUsuarioComponent implements OnInit {
   public usuario: Usuario;
   public returnUrl: string;
   public mensagem: string;
+  public ativar_spinner: boolean;
+  public usuarioCadastrado: boolean;
 
   constructor(private router: Router,
     private activatedRouter: ActivatedRoute,
@@ -25,29 +27,26 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   public cadastrar() {
-    alert("Email: " + this.usuario.email +
-      " ,Senha: " + this.usuario.senha +
-      " ,Nome: " + this.usuario.nome +
-      " ,Sobre Nome: " + this.usuario.sobreNome);
+    this.usuarioServico.cadastrarUsuario(this.usuario)
+      .subscribe(
+        usuario_json => {
+          this.usuarioCadastrado = true;
+          this.mensagem = "";
+          // Essa linha será executada no caso de retorno sem erros
+          //console.log(data);
+          this.usuarioServico.usuario = usuario_json;
 
-    //this.usuarioServico.cadastrarUsuario(this.usuario)
-    //  .subscribe(
-    //    usuario_json => {
-    //      // Essa linha será executada no caso de retorno sem erros
-    //      //console.log(data);
-    //      this.usuarioServico.usuario = usuario_json;
+          //if (this.returnUrl == null) {
+          //  this.router.navigate(['/']);
+          //} else {
+          //  this.router.navigate([this.returnUrl]);
+          //}
 
-    //      if (this.returnUrl == null) {
-    //        this.router.navigate(['/']);
-    //      } else {
-    //        this.router.navigate([this.returnUrl]);
-    //      }
-
-    //    },
-    //    err => {
-    //      // Caso ocorra algum erro
-    //      console.log(err.error);
-    //      this.mensagem = err.error;
-    //    });
+        },
+        err => {
+          // Caso ocorra algum erro
+          console.log(err.error);
+          this.mensagem = err.error;
+        });
   }
 }

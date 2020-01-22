@@ -17,6 +17,7 @@ export class ProdutoComponent implements OnInit {
   public liberadoParaVenda: boolean;
   public returnUrl: string;
   public mensagem: string;
+  public ativar_spinner: boolean;
 
   constructor(private router: Router,
     private activatedRouter: ActivatedRoute,
