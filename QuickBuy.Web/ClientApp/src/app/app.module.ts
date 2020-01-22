@@ -31,10 +31,12 @@ import { ProdutoServico } from './servicos/produto/produto.servico';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
-      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
+      { path: 'produto', component: ProdutoComponent},
     ])
   ],
   providers: [UsuarioServico, ProdutoServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//{ path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
