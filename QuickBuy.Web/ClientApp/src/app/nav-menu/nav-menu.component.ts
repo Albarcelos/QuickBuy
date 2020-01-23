@@ -12,7 +12,6 @@ export class NavMenuComponent {
 
   constructor(private router: Router,
     private usuarioServico: UsuarioServico) {
-
   }
 
   collapse() {
@@ -30,5 +29,9 @@ export class NavMenuComponent {
   sair() {
     this.usuarioServico.limpar_sessao();
     this.router.navigate(['/']);
+  }
+
+  get usuario() {
+    return this.usuarioServico.usuario;
   }
 }
