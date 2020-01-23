@@ -18,11 +18,9 @@ export class ProdutoComponent implements OnInit {
   public returnUrl: string;
   public mensagem: string;
   public ativar_spinner: boolean;
+  public arquivoSelecionado: File;
 
-  constructor(private router: Router,
-    private activatedRouter: ActivatedRoute,
-    private produtoServico: ProdutoServico) {
-
+  constructor(private produtoServico: ProdutoServico) {
   }
 
   ngOnInit(): void {
@@ -30,11 +28,9 @@ export class ProdutoComponent implements OnInit {
   }
 
   public cadastrar() {
-    //this.produto;
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produto_json => {
-          // Caso ocorra algum erro
           console.log(produto_json);
         },
         err => {
@@ -42,5 +38,20 @@ export class ProdutoComponent implements OnInit {
           console.log(err.error);
           this.mensagem = err.error;
         });
+  }
+
+  public inputChange(files: FileList) {
+    this.arquivoSelecionado = files.item(0);
+    this.produtoServico.enviarArquivo(this.arquivoSelecionado)
+      .subscribe(
+        retorno => {
+          console.log(retorno);
+        },
+        err => {
+          // Caso ocorra algum erro
+          console.log(err.error);
+          this.mensagem = err.error;
+        }
+      );
   }
 }
