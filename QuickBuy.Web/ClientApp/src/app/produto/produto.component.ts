@@ -42,15 +42,19 @@ export class ProdutoComponent implements OnInit {
 
   public inputChange(files: FileList) {
     this.arquivoSelecionado = files.item(0);
+    this.ativar_spinner = true;
     this.produtoServico.enviarArquivo(this.arquivoSelecionado)
       .subscribe(
-        retorno => {
-          console.log(retorno);
+        nomeArquivo => {
+          this.produto.nomeArquivo = nomeArquivo;
+          console.log(nomeArquivo);
+          this.ativar_spinner = false;
         },
         err => {
           // Caso ocorra algum erro
           console.log(err.error);
           this.mensagem = err.error;
+          this.ativar_spinner = false;
         }
       );
   }
