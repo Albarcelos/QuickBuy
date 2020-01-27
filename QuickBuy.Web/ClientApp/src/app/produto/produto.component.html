@@ -3,7 +3,10 @@
 <label for="inputNome" class="sr-only">Nome Produto</label>
 <input type="text" id="inputNome" name="nome" placeholder="Nome do Produto"
        [(ngModel)]="produto.nome" #nome="ngModel" class="form-control mb-2 col-md-6"
-       [ngClass]="" required />
+       [ngClass]="{
+       'is-invalid': nome.invalid && (nome.dirty || nome.touched),
+       'is-valid': nome.valid && (nome.dirty || nome.touched)
+       }" required />
 <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
   <div *ngIf="nome.errors.required">
     Obrigatório o preenchimento do nome
@@ -13,7 +16,10 @@
 <label for="inputDescricao" class="sr-only">Descrição Produto</label>
 <input type="text" id="inputDescricao" name="descricao" placeholder="Descrição do Produto"
        [(ngModel)]="produto.descricao" #descricao="ngModel" class="form-control mb-2 col-md-6"
-       [ngClass]="" required />
+       [ngClass]="{
+       'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
+       'is-valid': descricao.valid && (descricao.dirty || descricao.touched)
+       }" required />
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Obrigatório o preenchimento da descrição
@@ -23,7 +29,10 @@
 <label for="inputPreco" class="sr-only">Preço do Produto</label>
 <input type="number" id="inputPreco" name="preco" placeholder="Preço do Produto"
        [(ngModel)]="produto.preco" #preco="ngModel" class="form-control mb-2 col-md-2"
-       [ngClass]="" required />
+       [ngClass]="{
+       'is-invalid': preco.invalid && (preco.dirty || preco.touched),
+       'is-valid': preco.valid && (preco.dirty || preco.touched)
+       }" required />
 <div class="invalid-feedback mb-2" *ngIf="preco.invalid && (preco.dirty || preco.touched)">
   <div *ngIf="preco.errors.required">
     Obrigatório o preenchimento do preço
@@ -38,7 +47,11 @@
   </div>
 </div>
 
-<button class="btn btn-primary" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+<button class="btn btn-primary mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
   <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
   Cadastrar
 </button>
+
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{ mensagem }}
+</div>
