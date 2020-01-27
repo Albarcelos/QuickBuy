@@ -20,10 +20,10 @@ namespace QuickBuy.Dominio.Entidades
         public override void Validate()
         {
             if (string.IsNullOrEmpty(Email))
-                AdicionarCritica("Email não foli informado.");
+                AdicionarCritica("Crítica - Email não foli informado.");
 
             if (string.IsNullOrEmpty(Senha))
-                AdicionarCritica("Senha não foi informada.");
+                AdicionarCritica("Crítica - Senha não foi informada.");
         }
     }
 }

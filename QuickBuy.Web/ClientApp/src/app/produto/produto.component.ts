@@ -28,15 +28,18 @@ export class ProdutoComponent implements OnInit {
   }
 
   public cadastrar() {
+    this.ativar_spinner = true;
     this.produtoServico.cadastrar(this.produto)
       .subscribe(
         produto_json => {
           console.log(produto_json);
+          this.ativar_spinner = false;
         },
         err => {
           // Caso ocorra algum erro
           console.log(err.error);
           this.mensagem = err.error;
+          this.ativar_spinner = false;
         });
   }
 
