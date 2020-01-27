@@ -27,38 +27,52 @@ export class ProdutoComponent implements OnInit {
     this.produto = new Produto();
   }
 
-  public cadastrar() {
-    this.ativar_spinner = true;
-    this.produtoServico.cadastrar(this.produto)
-      .subscribe(
-        produto_json => {
-          console.log(produto_json);
-          this.ativar_spinner = false;
-        },
-        err => {
-          // Caso ocorra algum erro
-          console.log(err.error);
-          this.mensagem = err.error;
-          this.ativar_spinner = false;
-        });
-  }
-
   public inputChange(files: FileList) {
+    this.ativarEspera();
     this.arquivoSelecionado = files.item(0);
-    this.ativar_spinner = true;
+
     this.produtoServico.enviarArquivo(this.arquivoSelecionado)
       .subscribe(
         nomeArquivo => {
           this.produto.nomeArquivo = nomeArquivo;
           console.log(nomeArquivo);
-          this.ativar_spinner = false;
+
+          this.desativarEspera();
         },
         err => {
           // Caso ocorra algum erro
           console.log(err.error);
           this.mensagem = err.error;
-          this.ativar_spinner = false;
+
+          this.desativarEspera();
         }
       );
+  }
+
+  public cadastrar() {
+    this.ativarEspera();
+
+    this.produtoServico.cadastrar(this.produto)
+      .subscribe(
+        produto_json => {
+          console.log(produto_json);
+
+          this.desativarEspera();
+        },
+        err => {
+          // Caso ocorra algum erro
+          console.log(err.error);
+          this.mensagem = err.error;
+
+          this.desativarEspera();
+        });
+  }
+
+  public ativarEspera() {
+    this.ativar_spinner = true;
+  }
+
+  public desativarEspera() {
+    this.ativar_spinner = false;
   }
 }
