@@ -1,16 +1,15 @@
 import { Component, OnInit } from "@angular/core"
-import { Router, ActivatedRoute } from "@angular/router";
-import { ProdutoServico } from "../servicos/produto/produto.servico";
-import { Produto } from "../modelo/produto";
+import { ProdutoServico } from "../../servicos/produto/produto.servico";
+import { Produto } from "../../modelo/produto";
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ["./produto.component.css"]
+  selector: 'cadastrar-produto',
+  templateUrl: './cadastro.produto.component.html',
+  styleUrls: ["./cadastro.produto.component.css"]
 })
 
 // Convençao PascalCase - Nome da classe comeca com Maiusculo
-export class ProdutoComponent implements OnInit {
+export class CadastroProdutoComponent implements OnInit {
 
   // camelCase - Para variaveis, atributos e funcoes
   public produto: Produto;

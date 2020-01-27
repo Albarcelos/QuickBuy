@@ -14,7 +14,11 @@
           </li>
 
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/produto"]'>Produto</a>
+            <a class="nav-link text-dark" [routerLink]='["/novo-produto"]'>Novo Produto</a>
+          </li>
+
+          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Pesquisar Produto</a>
           </li>
 
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
@@ -30,14 +34,14 @@
 
             <ul class="dropdown-menu" aria-labelledby="linkMenu">
               <li class="dropdown-item" role="menu" [routerLink]='["/sair"]' (click)="sair()">
-              Sair
+                Sair
               </li>
             </ul>
           </li>
 
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
-            <a class="nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
-          </li>-->
+    <a class="nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
+  </li>-->
 
         </ul>
       </div>
