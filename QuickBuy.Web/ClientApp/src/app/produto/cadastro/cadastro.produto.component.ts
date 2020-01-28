@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
 import { Produto } from "../../modelo/produto";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'cadastrar-produto',
@@ -19,7 +20,7 @@ export class CadastroProdutoComponent implements OnInit {
   public ativar_spinner: boolean;
   public arquivoSelecionado: File;
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -57,6 +58,7 @@ export class CadastroProdutoComponent implements OnInit {
           console.log(produto_json);
 
           this.desativarEspera();
+          this.router.navigate(['/pesquisar-produto']);
         },
         err => {
           // Caso ocorra algum erro
