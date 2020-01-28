@@ -27,4 +27,7 @@ export class PesquisaProdutoComponent implements OnInit {
 
   }
 
+  public adicionarProduto() {
+
+  }
 }
