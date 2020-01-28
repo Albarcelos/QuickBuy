@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from '../../modelo/produto';
+import { ProdutoServico } from '../../servicos/produto/produto.servico';
 
 @Component({
   selector: "pesquisa-produto",
@@ -7,8 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PesquisaProdutoComponent implements OnInit {
 
-  constructor() {
+  public produtos: Produto[];
 
+  constructor(private produtoServico: ProdutoServico) {
+    this.produtoServico.obterTodosProdutos()
+      .subscribe(
+        listaProdutos => {
+          this.produtos = listaProdutos;
+        },
+        err => {
+          console.log(err.error)
+        }
+      );
   }
 
   ngOnInit(): void {
