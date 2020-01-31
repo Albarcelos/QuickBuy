@@ -52,4 +52,5 @@ export class PesquisaProdutoComponent implements OnInit {
     sessionStorage.setItem('produtoSession', JSON.stringify(produto));
     this.router.navigate(['/novo-produto']);
   }
+
 }
