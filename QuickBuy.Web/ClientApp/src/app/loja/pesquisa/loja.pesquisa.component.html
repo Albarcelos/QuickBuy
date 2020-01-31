@@ -8,7 +8,7 @@
              style="width:60%;height:10%" />
         <div class="card-body">
           <h5 class="card-title mb-2">{{prod.nome}}</h5>
-          <div class="card-text mb-2">{{prod.descricao}}</div>
+          <div class="card-text mb-2">{{prod.descricao | truncate: 40 }}</div>
           <h5 class="h5">R$ {{prod.preco}}</h5>
         </div>
       </div>
