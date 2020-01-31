@@ -1,3 +1,21 @@
+<h1 class="h4 mb-2">HTML da Loja para listar os produtos</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-2" *ngFor="let prod of produtos">
+      <div class="card">
+        <img src="../../../../../arquivos/{{prod.nomeArquivo}}"
+             style="width:60%;height:10%" />
+        <div class="card-body">
+          <h5 class="card-title mb-2">{{prod.nome}}</h5>
+          <div class="card-text mb-2">{{prod.descricao}}</div>
+          <h5 class="h5">R$ {{prod.preco}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <table class="table table-hover" *ngIf="produtos">
   <thead>
     <tr>
