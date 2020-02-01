@@ -30,7 +30,7 @@ export class PesquisaProdutoComponent implements OnInit {
 
   public adicionarProduto() {
     sessionStorage.setItem('produtoSession', '');
-    this.router.navigate(['/novo-produto']);
+    this.router.navigate(['/cadastrar-produto']);
   }
 
   public deletarProduto(produto: Produto) {
@@ -50,7 +50,7 @@ export class PesquisaProdutoComponent implements OnInit {
 
   public editarProduto(produto: Produto) {
     sessionStorage.setItem('produtoSession', JSON.stringify(produto));
-    this.router.navigate(['/novo-produto']);
+    this.router.navigate(['/cadastrar-produto']);
   }
 
 }

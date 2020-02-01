@@ -19,10 +19,13 @@
        [ngClass]="{
        'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
        'is-valid': descricao.valid && (descricao.dirty || descricao.touched)
-       }" required />
+       }" required minlength="50" />
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Obrigatório o preenchimento da descrição
+  </div>
+  <div *ngIf="descricao.errors.minlength">
+    Obrigatório o preenchimento da descrição com no mínimo 50 caracteres
   </div>
 </div>
 

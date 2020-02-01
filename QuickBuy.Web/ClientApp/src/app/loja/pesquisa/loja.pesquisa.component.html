@@ -1,11 +1,13 @@
 <h1 class="h4 mb-2">HTML da Loja para listar os produtos</h1>
 
-<div class="container">
+<div *ngIf="!produtos">Carregando os produtos ...</div>
+
+<div class="container" *ngIf="produtos">
   <div class="row">
     <div class="col-md-4 mb-2" *ngFor="let prod of produtos">
       <div class="card">
         <img src="../../../../../arquivos/{{prod.nomeArquivo}}"
-             style="width:60%;height:10%" />
+             style="width:200px;height:200px" />
         <div class="card-body">
           <h5 class="card-title mb-2">{{prod.nome}}</h5>
           <div class="card-text mb-2">{{prod.descricao | truncate: 40 }}</div>
@@ -15,25 +17,3 @@
     </div>
   </div>
 </div>
-
-<table class="table table-hover" *ngIf="produtos">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Preço</th>
-      <th>Imagem</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let prod of produtos">
-      <td>{{prod.nome}}</td>
-      <td style="width:50%">{{prod.descricao}}</td>
-      <td style="width:10%">R$ {{prod.preco}}</td>
-      <td style="width:10%"><img src="../../../../../arquivos/{{prod.nomeArquivo}}" style="width:60%;height:10%" /></td>
-    </tr>
-  </tbody>
-</table>

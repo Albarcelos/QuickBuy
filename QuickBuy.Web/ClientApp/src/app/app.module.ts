@@ -39,7 +39,7 @@ import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
-      { path: 'novo-produto', component: CadastroProdutoComponent, canActivate: [GuardaRotas] },
+      { path: 'cadastrar-produto', component: CadastroProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent }
     ])
   ],
