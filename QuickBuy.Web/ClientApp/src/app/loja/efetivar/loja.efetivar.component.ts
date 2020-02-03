@@ -21,4 +21,13 @@ export class LojaEfetivarComponent implements OnInit {
   constructor(private produtoServico: ProdutoServico) {
 
   }
+
+  public atualizarPreco(produto: Produto, quantidade: number) {
+    if (!produto.precoOriginal) {
+      produto.precoOriginal = produto.preco;
+    }
+
+    produto.preco = produto.precoOriginal * quantidade;
+  }
+
 }
