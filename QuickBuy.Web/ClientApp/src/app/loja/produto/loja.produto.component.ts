@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { Produto } from '../../modelo/produto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'loja-app-produto',
@@ -19,7 +20,11 @@ export class LojaProdutoComponent implements OnInit {
     }
   }
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
 
+  }
+
+  public comprar() {
+    this.router.navigate(["/loja-efetivar"]);
   }
 }
