@@ -5,15 +5,17 @@
 <div class="container" *ngIf="produtos">
   <div class="row">
     <div class="col-md-4 mb-2" *ngFor="let prod of produtos">
-      <div class="card">
-        <img src="../../../../../arquivos/{{prod.nomeArquivo}}"
-             style="width:200px;height:200px" />
-        <div class="card-body">
-          <h5 class="card-title mb-2">{{prod.nome}}</h5>
-          <div class="card-text mb-2">{{prod.descricao | truncate: 40 }}</div>
-          <h5 class="h5">R$ {{prod.preco}}</h5>
+      <a (click)="abrirProduto(prod)" style="cursor:pointer">
+        <div class="card">
+          <img src="../../../../../arquivos/{{prod.nomeArquivo}}"
+               style="width:200px;height:200px" />
+          <div class="card-body">
+            <h5 class="card-title mb-2">{{prod.nome}}</h5>
+            <div class="card-text mb-2">{{prod.descricao | truncate: 40 }}</div>
+            <h5 class="h5">R$ {{prod.preco}}</h5>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>

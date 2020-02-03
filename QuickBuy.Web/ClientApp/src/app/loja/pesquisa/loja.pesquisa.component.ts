@@ -27,4 +27,8 @@ export class LojaPesquisaComponent implements OnInit {
         }
       );
   }
+
+  public abrirProduto(produto: Produto) {
+    alert(produto.nome);
+  }
 }
