@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
+import { LojaCarrinhoCompras } from '../carinho/loja.carrinho.compras';
+import { Produto } from '../../modelo/produto';
 
 @Component({
   selector: 'loja-efetivar',
@@ -8,11 +10,14 @@ import { ProdutoServico } from '../../servicos/produto/produto.servico';
 })
 
 export class LojaEfetivarComponent implements OnInit {
-
+  public carrinhoCompras: LojaCarrinhoCompras;
+  public produtos: Produto[];
 
   ngOnInit(): void {
-
+    this.carrinhoCompras = new LojaCarrinhoCompras();
+    this.produtos = this.carrinhoCompras.obterProdutos();
   }
+
   constructor(private produtoServico: ProdutoServico) {
 
   }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { Produto } from '../../modelo/produto';
 import { Router } from '@angular/router';
+import { LojaCarrinhoCompras } from '../carinho/loja.carrinho.compras';
 
 @Component({
   selector: 'loja-app-produto',
@@ -11,8 +12,10 @@ import { Router } from '@angular/router';
 
 export class LojaProdutoComponent implements OnInit {
   public produto: Produto;
+  public carrinhoCompras: LojaCarrinhoCompras;
 
   ngOnInit(): void {
+    this.carrinhoCompras = new LojaCarrinhoCompras();
     var produtoDetalhe = sessionStorage.getItem('produtoDetalhe');
 
     if (produtoDetalhe) {
@@ -25,6 +28,7 @@ export class LojaProdutoComponent implements OnInit {
   }
 
   public comprar() {
+    this.carrinhoCompras.adicionar(this.produto);
     this.router.navigate(["/loja-efetivar"]);
   }
 }
