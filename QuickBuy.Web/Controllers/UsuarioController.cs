@@ -38,7 +38,7 @@ namespace QuickBuy.Web.Controllers
             {
                 var usuarioRetorno = _usuarioRepositorio.Obter(usuario.Email, usuario.Senha);
 
-                if(usuarioRetorno != null)
+                if (usuarioRetorno != null)
                 {
                     return Ok(usuarioRetorno);
                 }
@@ -49,7 +49,7 @@ namespace QuickBuy.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-        
+
         [HttpPost]
         public ActionResult Post([FromBody] Usuario usuario)
         {
@@ -69,6 +69,6 @@ namespace QuickBuy.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-        
+
     }
 }
