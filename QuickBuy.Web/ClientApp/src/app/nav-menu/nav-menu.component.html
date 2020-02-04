@@ -41,6 +41,12 @@
             </ul>
           </li>
 
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="temItemCarrinhoCompras()">
+            <a class="nav-link text-dark" [routerLink]='["/loja-efetivar"]'>
+              <img src="assets/img/shopping-cart.png" style="width:32px;height:32px" />
+            </a>
+          </li>
+
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
             <a class="nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
           </li>-->
