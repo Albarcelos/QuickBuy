@@ -3,7 +3,7 @@
     <div class="container">
       <a class="navbar-brand" [routerLink]='["/"]'>QuickBuy</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
-        [attr.aria-expanded]="isExpanded" (click)="toggle()">
+              [attr.aria-expanded]="isExpanded" (click)="toggle()">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
@@ -14,11 +14,13 @@
           </li>
 
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/cadastrar-produto"]'>Novo Produto</a>
+            <a class="nav-link text-dark" [routerLink]='["/cadastrar-produto"]'
+               *ngIf="usuarioAdministrador()">Novo Produto</a>
           </li>
 
           <li class="nav-item" [routerLinkActive]='["link-active"]'>
-            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'>Pesquisar Produto</a>
+            <a class="nav-link text-dark" [routerLink]='["/pesquisar-produto"]'
+               *ngIf="usuarioAdministrador()">Pesquisar Produto</a>
           </li>
 
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!usuarioLogado()">
@@ -40,8 +42,8 @@
           </li>
 
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="usuarioLogado()">
-    <a class="nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
-  </li>-->
+            <a class="nav-link text-dark" [routerLink]='["/sair"]' (click)="sair()">Sair</a>
+          </li>-->
 
         </ul>
       </div>
