@@ -12,10 +12,14 @@
         </thead>
         <tbody>
           <tr *ngFor="let prod of produtos">
-            <td style="width:20%"><img src="../../../../../arquivos/{{prod.nomeArquivo}}" style="width:40%;height:10%" /></td>
-            <td style="width:40%">{{prod.descricao}}</td>
-            <td style="width:10%"><input class="form-control" type="number" min="1" value="1" (change)="atualizarPreco(prod, $event.target.value)" /></td>
-            <td style="width:30%">R$ {{prod.preco | number:'1.0-2'}}</td>
+            <td style="width:10%"><img src="../../../../../arquivos/{{prod.nomeArquivo}}" style="width:100%;height:60%" /></td>
+            <td style="width:50%">{{prod.descricao}}</td>
+            <td style="width:10%">
+              <input class="form-control" type="number" min="1" value="1" [(ngModel)]="prod.quantidade"
+                     placeholder="1" (change)="atualizarPreco(prod, $event.target.value)" />
+            </td>
+            <td style="width:20%">R$ {{prod.preco | number:'1.0-2'}}</td>
+            <td style="width:10%"><button class="btn btn-secondary btn-sm" (click)="remover(prod)">Remover</button></td>
           </tr>
         </tbody>
       </table>
