@@ -29,7 +29,7 @@ namespace QuickBuy.Web
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            
+
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
             services.AddDbContext<QuickBuyContexto>(options => options.UseLazyLoadingProxies().UseMySql(connectionString, m => m.MigrationsAssembly("QuickBuy.Repositorio")));
 
