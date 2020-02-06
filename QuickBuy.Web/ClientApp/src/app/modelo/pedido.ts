@@ -15,5 +15,6 @@ export class Pedido {
 
   constructor() {
     this.itensPedido = [];
+    this.dataPedido = new Date();
   }
 }
