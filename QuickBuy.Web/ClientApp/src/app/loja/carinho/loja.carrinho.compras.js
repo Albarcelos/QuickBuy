@@ -18,10 +18,11 @@ var LojaCarrinhoCompras = /** @class */ (function () {
         localStorage.setItem("produtoLocalStorage", JSON.stringify(this.produtos));
     };
     LojaCarrinhoCompras.prototype.obterProdutos = function () {
-        var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");
-        if (produtoLocalStorage) {
-            return JSON.parse(produtoLocalStorage);
+        var produtoLocaStorage = localStorage.getItem("produtoLocalStorage");
+        if (produtoLocaStorage) {
+            return JSON.parse(produtoLocaStorage);
         }
+        return this.produtos;
     };
     LojaCarrinhoCompras.prototype.removerProduto = function (produto) {
         var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");

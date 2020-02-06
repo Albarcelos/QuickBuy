@@ -20,11 +20,12 @@ export class LojaCarrinhoCompras {
   }
 
   public obterProdutos(): Produto[] {
-    var produtoLocalStorage = localStorage.getItem("produtoLocalStorage");
+    var produtoLocaStorage = localStorage.getItem("produtoLocalStorage");
 
-    if (produtoLocalStorage) {
-      return JSON.parse(produtoLocalStorage);
+    if (produtoLocaStorage) {
+      return JSON.parse(produtoLocaStorage);
     }
+    return this.produtos;
   }
 
   public removerProduto(produto: Produto) {
