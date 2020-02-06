@@ -52,7 +52,7 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
-    let pedido = new Pedido();
+    let pedido = this.criarPedido();
 
   }
 
