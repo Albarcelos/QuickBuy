@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { LojaCarrinhoCompras } from '../carinho/loja.carrinho.compras';
 import { Produto } from '../../modelo/produto';
+import { Pedido } from '../../modelo/pedido';
 
 @Component({
   selector: 'loja-efetivar',
@@ -50,6 +51,7 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
+    let pedido = new Pedido();
 
   }
 }

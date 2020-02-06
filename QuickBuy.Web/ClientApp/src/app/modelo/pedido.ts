@@ -1,12 +1,19 @@
+import { ItemPedido } from "./itemPedido";
+
 export class Pedido {
-  id: number;
-  dataPedido: Date;
-  usuarioId: number;
-  dataPrevisaoEntrega: Date;
-  cep: string;
-  estado: string;
-  cidade: string;
-  enderecoCompleto: string;
-  numeroEndereco: number;
-  formaPagamentoId: number;
+  public id: number;
+  public dataPedido: Date;
+  public usuarioId: number;
+  public dataPrevisaoEntrega: Date;
+  public cep: string;
+  public estado: string;
+  public cidade: string;
+  public enderecoCompleto: string;
+  public numeroEndereco: number;
+  public formaPagamentoId: number;
+  public itensPedido: ItemPedido[];
+
+  constructor() {
+    this.itensPedido = [];
+  }
 }
