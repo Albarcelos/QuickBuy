@@ -81,6 +81,7 @@ export class LojaEfetivarComponent implements OnInit {
     pedido.dataPrevisaoEntrega = new Date();
     pedido.formaPagamentoId = 1;
     pedido.numeroEndereco = 12;
+    pedido.enderecoCompleto = "end completo";
 
     this.produtos = this.carrinhoCompras.obterProdutos();
 

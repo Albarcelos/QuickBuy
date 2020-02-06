@@ -29,18 +29,12 @@ export class CadastroUsuarioComponent implements OnInit {
     this.usuarioServico.cadastrarUsuario(this.usuario)
       .subscribe(
         usuario_json => {
+          // Essa linha será executada no caso de retorno sem erros
+          console.log(JSON.stringify(usuario_json));
           this.usuarioCadastrado = true;
           this.mensagem = "";
-          // Essa linha será executada no caso de retorno sem erros
-          //console.log(data);
+          this.ativar_spinner = false;
           this.usuarioServico.usuario = usuario_json;
-
-          //if (this.returnUrl == null) {
-          //  this.router.navigate(['/']);
-          //} else {
-          //  this.router.navigate([this.returnUrl]);
-          //}
-
         },
         err => {
           // Caso ocorra algum erro

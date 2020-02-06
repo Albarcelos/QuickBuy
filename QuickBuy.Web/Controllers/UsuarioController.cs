@@ -62,7 +62,7 @@ namespace QuickBuy.Web.Controllers
                 }
 
                 _usuarioRepositorio.Adicionar(usuario);
-                return Ok();
+                return Json(usuario);
             }
             catch (Exception ex)
             {
